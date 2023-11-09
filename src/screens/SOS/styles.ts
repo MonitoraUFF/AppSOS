@@ -1,21 +1,22 @@
 import styled from "styled-components/native";
 
-// export const Teste = styled.View`
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// `;
+export const Container = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+`;
 
-// export const TextoTeste = styled.Text`
+export const Imagem = styled.Image`
+    width: 250px;
+    height: 250px;
+`;
+// export const Text = styled.Text`
 //     color: blue;
 // `;
 
-export const BotaoSOS = styled.TouchableOpacity`
-    background-color: black;
-    widtth: 100;
-    height: 100;
-`;
-
-export const ImagemBotaoSOS = styled.Image`
-    resize-mode: center;
-`;
+// export const Imagem = styled.Image`
+//     flex: 1;
+//     justify-content: center;
+//     align-items: center;
+// `;
