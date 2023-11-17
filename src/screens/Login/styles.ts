@@ -27,7 +27,7 @@ export const TextoCaixas = styled.Text`
 
 `;
 export const CaixaLogin = styled.TextInput`
-    height: 25;
+    height: 25px;
     width: 200px;
     border-width: 1px;
 `;
@@ -36,5 +36,5 @@ export const BotaoLogin = styled.TouchableOpacity`
     align-items: 'center';
     width: 100px;
     height: 40px;
-    background-color: gray;
+    background-color: pink;
 `;
