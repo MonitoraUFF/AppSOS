@@ -1,8 +1,9 @@
-import { Container, TextoLogin, CaixaLogin, ContainerCaixasTexto, BotaoLogin, ContainerTextoLogin, ContainerCaixasTextoIndividual, TextoCaixas } from "./styles";
+import { Container, TextoLogin, TextoEnvio, ContainerBotao, CaixaLogin, ContainerCaixasTexto, BotaoLogin, ContainerTextoLogin, ContainerCaixasTextoIndividual, TextoCaixas, ContainerImagemLogos } from "./styles";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function Login(){
     const [username, setUsername] = useState("");
@@ -17,10 +18,7 @@ export default function Login(){
     }
     const postLogin = async () => {
         try {
-            const response = await axios.post('http://192.168.10.17:5000/Login', data, {
-                headers: {
-                'App-Token': '22AFPlKmP6HoOZD38RL2GBJDvkyn9wAfJMDouJ3t'
-            }});
+            const response = await axios.post('http://192.168.1.2:5000/Login', data);
             const tokenRecebido = response.data;
             navigateToSecond(tokenRecebido);
         } catch (error) {
@@ -35,15 +33,18 @@ export default function Login(){
             </ContainerTextoLogin>
             <ContainerCaixasTexto>
                 <ContainerCaixasTextoIndividual>
-                    <TextoCaixas>Login</TextoCaixas>
+                    <TextoCaixas>Usuário</TextoCaixas>
                     <CaixaLogin onChangeText={(text: string) => setUsername(text)}/>
                 </ContainerCaixasTextoIndividual>
                 <ContainerCaixasTextoIndividual>
                     <TextoCaixas>Senha</TextoCaixas>
                     <CaixaLogin secureTextEntry={true} onChangeText={(text: string) => setPassword(text)}/>
                 </ContainerCaixasTextoIndividual>
-            <BotaoLogin onPress={postLogin}><Text>Login</Text></BotaoLogin>    
+                <ContainerBotao>
+                    <BotaoLogin onPress={postLogin}><TextoEnvio>Entrar</TextoEnvio></BotaoLogin>
+                </ContainerBotao>
             </ContainerCaixasTexto>
+            <ContainerImagemLogos source={require('../../../assets/logos.png')}></ContainerImagemLogos>
         </Container>
     );
 }

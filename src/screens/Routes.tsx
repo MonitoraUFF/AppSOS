@@ -12,8 +12,16 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <AppStack.Navigator>
-        <AppStack.Screen name="Login" component={Login} />
-        <AppStack.Screen name="SOS" component={SOS} />
+        <AppStack.Screen name="Login" component={Login} options={{
+          title: '',
+          headerTransparent: true,
+          headerShown: false
+        }}/>
+        <AppStack.Screen name="SOS" component={SOS} options={{
+          title: '',
+          headerTransparent: true,
+          headerShown: false
+        }}/>
       </AppStack.Navigator>
     </NavigationContainer>
   );

@@ -18,9 +18,10 @@ export default function SOS({route}:SOSProps){
     }
     const postTicket = async () => {
         try {
-            const response = await axios.post('http://192.168.10.17:5000/SOSButton', dados, {
+            const response = await axios.post('http://192.168.1.2:5000/SOSButton', dados,
+            {
                 headers: {
-                'authorization': token
+                'Authorization': token
             }
             });
             Alert.alert("Chamado enviado com sucesso!")
